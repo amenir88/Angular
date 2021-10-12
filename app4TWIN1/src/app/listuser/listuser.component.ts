@@ -9,10 +9,11 @@ import { User } from '../models/user';
 })
 export class ListuserComponent implements OnInit {
    list : User[];
+   listInitiale : User[];
    prop1="x";
    prop2="testngmodel";
    prop3="test";
-   searchval="";
+   searchval="test";
   constructor(private ac:ActivatedRoute) { }
   getVal(val:string){
   
@@ -80,7 +81,18 @@ export class ListuserComponent implements OnInit {
         profession: "Software Engineer"
       }
 
-]
+      
+
+];
+this.listInitiale=this.list;
+     this.ac.paramMap.subscribe(
+      res => {
+      console.log(res.get('cat')); 
+      this.list=this.listInitiale.filter((user) =>{
+         return user.accountCategory === res.get('cat');//return user.accountCategory === res.get('category')  ;
+      });
+    })
+
 
   }
 

@@ -11,6 +11,7 @@ import { MainProductComponent } from './main-product/main-product.component';
 import { MainProviderComponent } from './main-provider/main-provider.component';
 import { NotFoundPageComponent } from './not-found-page/not-found-page.component';
 import { HomeComponent } from './home/home.component';
+import { FormUserComponent } from './form-user/form-user.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { HomeComponent } from './home/home.component';
     MainProductComponent,
     MainProviderComponent,
     NotFoundPageComponent,
-    HomeComponent
+    HomeComponent,
+    FormUserComponent
   ],
   imports: [
     BrowserModule,
