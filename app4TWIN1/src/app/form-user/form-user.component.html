@@ -1,1 +1,21 @@
-<p>form-user works!</p>
+<form  #f="ngForm">
+    firstname : <input required
+     name="firstname" type="text" ngModel  value="bonjour" #first="ngModel">
+    {{first.dirty}}
+    <div *ngIf="first.touched && first.invalid">
+        Champ obligatoire
+    </div>
+    lastname : <input required minlength="3"
+     name="lastname" type="text" ngModel  
+     #last="ngModel">
+    <div *ngIf="last.invalid || last.errors">
+    <div *ngIf="last.errors.required">
+        Champ obligatoire
+    </div>
+    <div *ngIf="last.errors.minlength">
+        Minimum 3 caractères
+    </div>
+</div>
+
+{{f.invalid}}
+</form>
