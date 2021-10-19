@@ -1,0 +1,20 @@
+<form  #f="ngForm">
+First Name : <input name="firstname" type="text" required ngModel #first="ngModel">{{first.value}} {{first.valid}}
+<div *ngIf="first.touched && first.invalid">
+    Champ obligatoire
+</div>
+last Name : <input name="lastname" type="text" pattern="[a-zA-Z]*" minlength="10" required ngModel #last="ngModel">
+<div *ngIf="last.errors">
+<div *ngIf="last.errors.required">
+    Champ obligatoire
+</div>
+<div *ngIf="last.errors.minlength">
+    {{last.errors.minlength.actualLength}} Minimum {{last.errors.minlength.requiredLength}} caractères
+</div>
+<div *ngIf="last.errors.pattern">
+    il faut écrire que des lettres
+</div>
+</div>
+bITH DATE : <input name="Birth" required ngModel >
+<button [disabled]="f.invalid">Ajouter</button>
+</form>

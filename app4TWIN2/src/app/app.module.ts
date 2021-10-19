@@ -14,6 +14,7 @@ import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { NotFoundPageComponent } from './not-found-page/not-found-page.component';
 import { HomeComponent } from './home/home.component';
+import { FormUserComponent } from './form-user/form-user.component';
 
 @NgModule({
   declarations: [
@@ -27,12 +28,14 @@ import { HomeComponent } from './home/home.component';
     HeaderComponent,
     FooterComponent,
     NotFoundPageComponent,
-    HomeComponent
+    HomeComponent,
+    FormUserComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule
+    
   ],
   providers: [],
   bootstrap: [AppComponent]
