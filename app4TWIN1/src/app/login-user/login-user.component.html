@@ -1,0 +1,23 @@
+<form [formGroup]="myForm">
+    <div class="form-group">
+        <label>Email</label>
+        <input type="text" class="form-control" formControlName="email">
+    </div> 
+    <div class="alert alert-danger" role="alert" *ngIf="myemail.errors">
+        <div *ngIf="myemail.errors.required">Champ obligatoire</div>
+        <div *ngIf="myemail.errors.pattern">pattern non respecté</div>
+    </div>
+    <div class="form-group">
+        <label>Password</label>
+        <input type="text" class="form-control" formControlName="pwd">
+    </div> 
+    <div class="alert alert-danger" role="alert" *ngIf="myForm.get('pwd').errors">
+        <div *ngIf="myForm.get('pwd').errors.required">Champ obligatoire</div>
+        <div *ngIf="myForm.get('pwd').errors.pattern">pattern non respecté</div>
+    </div>
+    <div formGroupName="sg">
+
+    </div>
+    <button class="btn btn-primary" [disabled]="myForm.invalid">Login</button>
+           
+</form>

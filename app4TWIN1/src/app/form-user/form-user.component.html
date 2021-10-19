@@ -1,21 +1,66 @@
-<form  #f="ngForm">
-    firstname : <input required
-     name="firstname" type="text" ngModel  value="bonjour" #first="ngModel">
-    {{first.dirty}}
-    <div *ngIf="first.touched && first.invalid">
-        Champ obligatoire
+<form #f="ngForm" (submit)="addUser()">
+    
+    <div class="form-group">
+      <label>First Name</label>
+      <input name="firstname" [(ngModel)]="user.firstName" #first="ngModel" required minlength="3" pattern="[a-zA-Z]*" type="text" class="form-control">
     </div>
-    lastname : <input required minlength="3"
-     name="lastname" type="text" ngModel  
-     #last="ngModel">
-    <div *ngIf="last.invalid || last.errors">
-    <div *ngIf="last.errors.required">
-        Champ obligatoire
+    <div *ngIf="first.touched && first.errors">
+    <div class="alert alert-danger" role="alert" *ngIf="first.errors.required">
+        Champ Obligatoire
     </div>
-    <div *ngIf="last.errors.minlength">
-        Minimum 3 caractères
+    <div class="alert alert-danger" role="alert" *ngIf="first.errors.minlength">
+        Le Champ doit contenir au moins {{first.errors.minlength.requiredLength}} lettres.
+    </div>
+    <div class="alert alert-danger" role="alert" *ngIf="first.errors.pattern">
+        Le champ doit contenir que des lettres
     </div>
 </div>
-
-{{f.invalid}}
+    <div class="form-group">
+        <label>Last Name</label>
+        <input name="lastname" minlength="3" pattern="[a-zA-Z]*" [(ngModel)]="user.lastName" #last="ngModel" required type="text" class="form-control">
+      </div>
+      <div *ngIf="last.touched && last.errors">
+        <div class="alert alert-danger" role="alert" *ngIf="last.errors.required">
+            Champ Obligatoire
+        </div>
+        <div class="alert alert-danger" role="alert" *ngIf="last.errors.minlength">
+            Le Champ doit contenir au moins {{last.errors.minlength.requiredLength}} lettres.
+        </div>
+        <div class="alert alert-danger" role="alert" *ngIf="last.errors.pattern">
+            Le champ doit contenir que des lettres
+        </div>
+    </div>
+    <div class="form-group">
+      <label>BirthDate</label>
+      <input name="BirthDate" [(ngModel)]="user.birthDate"  type="date" class="form-control">
+    </div>
+    <div class="form-group">
+        <label for="email">Email</label>
+        <input name="email" pattern="^[a-zA-Z0-9._-]+@gmail.com" [(ngModel)]="user.email"  type="email" class="form-control" id="email" #email="ngModel">
+      </div>
+      <div class="alert alert-danger" role="alert" *ngIf="email.invalid">
+        Votre email doit se terminer par "@gmail.com"
+    </div>
+      <div class="form-group">
+        <label for="pwd">Password</label>
+        <input name="pwd" pattern="^[a-zA-Z0-9]{8,}?" ngModel #pwd="ngModel"  type="text" class="form-control" id="pwd">
+      </div>
+      <div class="alert alert-danger" role="alert" *ngIf="pwd.invalid">
+        Votre mot de passe doit contenir des lettres non accentuées et des chiffres et de minimum 8 caractères
+    </div>
+      <div class="form-group">
+        <label for="profession">Profession</label>
+        <input name="profession" [(ngModel)]="user.profession"  type="text" class="form-control" id="profession">
+      </div>
+      <div class="form-group">
+        <label for="customerCategory">Customer Category</label>
+        <input name="customerCategory" [(ngModel)]="categorie" #customer="ngModel" pattern="Customer"   type="text" class="form-control" id="customerCategory">
+      </div>
+      <div class="alert alert-danger" role="alert" *ngIf="customer.invalid">
+        La catégorie doit être égale à Customer
+    </div>
+      <div class="div-btn">
+        <button type="submit" class="btn btn-primary" [disabled]="f.invalid">Save</button>  
+     </div>
+    
 </form>
