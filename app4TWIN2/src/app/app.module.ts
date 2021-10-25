@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import { CustomerComponent } from './customer/customer.component';
 import { TestComponent } from './test/test.component';
 import { ListUserComponent } from './list-user/list-user.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MainUserComponent } from './main-user/main-user.component';
 import { MainProductComponent } from './main-product/main-product.component';
 import { MainProviderComponent } from './main-provider/main-provider.component';
@@ -15,6 +15,7 @@ import { FooterComponent } from './footer/footer.component';
 import { NotFoundPageComponent } from './not-found-page/not-found-page.component';
 import { HomeComponent } from './home/home.component';
 import { FormUserComponent } from './form-user/form-user.component';
+import { LoginUserComponent } from './login-user/login-user.component';
 
 @NgModule({
   declarations: [
@@ -29,12 +30,14 @@ import { FormUserComponent } from './form-user/form-user.component';
     FooterComponent,
     NotFoundPageComponent,
     HomeComponent,
-    FormUserComponent
+    FormUserComponent,
+    LoginUserComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
     
   ],
   providers: [],

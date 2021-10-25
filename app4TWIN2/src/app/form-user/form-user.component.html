@@ -1,5 +1,5 @@
 <form  #f="ngForm">
-First Name : <input name="firstname" type="text" required ngModel #first="ngModel">{{first.value}} {{first.valid}}
+First Name : <input name="firstname" type="text" required [(ngModel)]="user.firstName" #first="ngModel">{{first.value}} {{first.valid}}
 <div *ngIf="first.touched && first.invalid">
     Champ obligatoire
 </div>
