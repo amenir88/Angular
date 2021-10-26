@@ -13,6 +13,8 @@ import { NotFoundPageComponent } from './not-found-page/not-found-page.component
 import { HomeComponent } from './home/home.component';
 import { FormUserComponent } from './form-user/form-user.component';
 import { LoginUserComponent } from './login-user/login-user.component';
+import { ParentComponent } from './parent/parent.component';
+import { FilsComponent } from './fils/fils.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +27,9 @@ import { LoginUserComponent } from './login-user/login-user.component';
     NotFoundPageComponent,
     HomeComponent,
     FormUserComponent,
-    LoginUserComponent
+    LoginUserComponent,
+    ParentComponent,
+    FilsComponent
   ],
   imports: [
     BrowserModule,
