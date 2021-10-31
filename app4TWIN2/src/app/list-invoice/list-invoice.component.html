@@ -1,0 +1,9 @@
+<ul>
+    <li *ngFor="let i of invoices">
+        {{i.idInvoice}} ** {{i.discountAmount}} 
+        <button (click)="editInvoice(i)">Edit</button> 
+        <button>Delete</button>
+    </li>
+</ul>
+<app-edit-invoice [invoiceToEdit]="invoiceToEdit" *ngIf="show"></app-edit-invoice>
+

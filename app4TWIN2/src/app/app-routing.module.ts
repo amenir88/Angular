@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
+import { ListInvoiceComponent } from './list-invoice/list-invoice.component';
 import { ListUserComponent } from './list-user/list-user.component';
 import { LoginUserComponent } from './login-user/login-user.component';
 import { MainProductComponent } from './main-product/main-product.component';
@@ -15,6 +16,7 @@ const routes: Routes = [
   {path:"mainuser", component:MainUserComponent, children:[
     {path:"listuser/:cat", component:ListUserComponent}
   ]},
+  {path:"maininvoice", component:ListInvoiceComponent},
   {path:"mainproduct", component:MainProductComponent},
   {path:"mainprovider", component:MainProviderComponent},
   {path:"login", component:LoginUserComponent},
