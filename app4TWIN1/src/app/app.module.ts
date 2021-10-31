@@ -15,6 +15,8 @@ import { FormUserComponent } from './form-user/form-user.component';
 import { LoginUserComponent } from './login-user/login-user.component';
 import { ParentComponent } from './parent/parent.component';
 import { FilsComponent } from './fils/fils.component';
+import { ListInvoiceComponent } from './list-invoice/list-invoice.component';
+import { EditInvoiceComponent } from './edit-invoice/edit-invoice.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +31,9 @@ import { FilsComponent } from './fils/fils.component';
     FormUserComponent,
     LoginUserComponent,
     ParentComponent,
-    FilsComponent
+    FilsComponent,
+    ListInvoiceComponent,
+    EditInvoiceComponent
   ],
   imports: [
     BrowserModule,
