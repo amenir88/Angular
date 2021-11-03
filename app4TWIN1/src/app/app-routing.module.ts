@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
+import { ListInvoiceComponent } from './list-invoice/list-invoice.component';
 import { ListuserComponent } from './listuser/listuser.component';
 import { LoginUserComponent } from './login-user/login-user.component';
 import { MainProductComponent } from './main-product/main-product.component';
@@ -18,6 +19,7 @@ const routes: Routes = [
   {path:"mainproduct", component:MainProductComponent},
   {path:"mainprovider", component:MainProviderComponent},
   {path:"login", component:LoginUserComponent},
+  {path:"invoices", component:ListInvoiceComponent},
   {path:"**", component:NotFoundPageComponent}
 ];
 

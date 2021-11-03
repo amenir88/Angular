@@ -1,1 +1,8 @@
-<p>list-invoice works!</p>
+<ul>
+    <li *ngFor="let i of invoices">
+        {{i.idInvoice}} ** {{i.dateBill}} ** {{i.discountAmount}} ** {{i.billAmount}}
+        <button (click)="showEdit(i)">Update</button> <button>Delete</button>
+    </li>
+
+</ul>
+<app-edit-invoice (edited)="updateInvoice($event)" [prop2]="myInvoice" [invoiceToEdit]="myInvoice" *ngIf="show"></app-edit-invoice>

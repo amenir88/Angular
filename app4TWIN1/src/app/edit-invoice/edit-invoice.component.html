@@ -1,1 +1,23 @@
-<p>edit-invoice works!</p>
+<form [formGroup]="myForm" (submit)="edit()">
+    <div class="form-group">
+        <label>idInvoice</label>
+        <input type="text" class="form-control" formControlName="idInvoice">
+    </div> 
+    <div class="form-group">
+        <label>discountAmount</label>
+        <input type="text" class="form-control" formControlName="discountAmount">
+    </div> 
+    <div class="form-group">
+        <label>Bill Amount</label>
+        <input type="text" class="form-control" formControlName="billAmount">
+    </div>
+    <div class="form-group">
+        <label>Date Bill</label>
+        <input type="text" class="form-control" formControlName="dateBill">
+    </div>
+    <div class="form-group">
+        <label>Status</label>
+        <input type="text" class="form-control" formControlName="Status">
+    </div>
+    <input type="submit" class="btn btn-primary">
+    </form>
