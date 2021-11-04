@@ -20,6 +20,7 @@ import { ParentComponent } from './parent/parent.component';
 import { FilsComponent } from './fils/fils.component';
 import { ListInvoiceComponent } from './list-invoice/list-invoice.component';
 import { EditInvoiceComponent } from './edit-invoice/edit-invoice.component';
+import { AddInvoiceComponent } from './add-invoice/add-invoice.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import { EditInvoiceComponent } from './edit-invoice/edit-invoice.component';
     ParentComponent,
     FilsComponent,
     ListInvoiceComponent,
-    EditInvoiceComponent
+    EditInvoiceComponent,
+    AddInvoiceComponent
   ],
   imports: [
     BrowserModule,

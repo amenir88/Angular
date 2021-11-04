@@ -1,5 +1,6 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { Component, EventEmitter, Input, OnInit, Output, SimpleChanges } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+
 import { Invoice } from '../models/invoice';
 
 @Component({
@@ -10,18 +11,47 @@ import { Invoice } from '../models/invoice';
 export class EditInvoiceComponent implements OnInit {
    show=false;
   @Input() invoiceToEdit:Invoice;
+  @Input() prop2:number;
+  @Output() edited = new EventEmitter<Invoice>();
   constructor() { }
   myForm:FormGroup;
   ngOnInit(): void {
-    this.myForm=new FormGroup({
+    console.log("ngOnInit");
+    /*  this.myForm=new FormGroup({
       idInvoice:new FormControl(this.invoiceToEdit.idInvoice),
-      discountAmount: new FormControl(),
-      billAmount: new FormControl(),
-      dateBill: new FormControl(),
-      status: new FormControl(),
-    })
+      discountAmount: new FormControl(this.invoiceToEdit.discountAmount),
+      billAmount: new FormControl(this.invoiceToEdit.billAmount),
+      dateBill: new FormControl(this.invoiceToEdit.dateBill),
+      status: new FormControl(this.invoiceToEdit.Status),
+    })  */
   }
-  add(){
-
+  ngOnChanges(changes:SimpleChanges){
+    console.log(changes);
+    if (changes.invoiceToEdit.firstChange){
+    this.myForm=new FormGroup({
+      id:new FormControl({"value":this.invoiceToEdit.idInvoice,"disabled":true}),
+      discount: new FormControl(this.invoiceToEdit.discountAmount),
+      bill: new FormControl(this.invoiceToEdit.billAmount),
+      date: new FormControl(this.invoiceToEdit.dateBill),
+      status: new FormControl(this.invoiceToEdit.Status),
+    }) 
+  }else{
+    this.myForm.setControl('id',new FormControl(this.invoiceToEdit.idInvoice));
+    this.myForm.setControl('discount',new FormControl(this.invoiceToEdit.discountAmount));
+    this.myForm.setControl('bill',new FormControl(this.invoiceToEdit.billAmount));
+    this.myForm.setControl('date',new FormControl(this.invoiceToEdit.dateBill));
+    this.myForm.setControl('status',new FormControl(this.invoiceToEdit.Status));
+  }
+  }
+  edit(){
+   // console.log(this.myForm.value);
+   console.log(this.myForm.getRawValue());
+   let myi=new Invoice();
+   myi.idInvoice=this.myForm.get('id').value;
+   myi.discountAmount=this.myForm.get('discount').value;
+   myi.dateBill=this.myForm.get('date').value;
+   myi.billAmount=this.myForm.get('bill').value;
+   myi.Status=this.myForm.get('status').value;
+   this.edited.emit(myi);
   }
 }

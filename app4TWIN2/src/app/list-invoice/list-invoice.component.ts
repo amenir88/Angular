@@ -9,6 +9,8 @@ import { Invoice } from '../models/invoice';
 export class ListInvoiceComponent implements OnInit {
   invoices:Invoice[];
   invoiceToEdit:Invoice;
+  showAdd = false;
+  nb=5;
   constructor() { }
   show=false;
   ngOnInit(): void {
@@ -23,6 +25,22 @@ export class ListInvoiceComponent implements OnInit {
   editInvoice(x:Invoice){
     this.show=true;
     this.invoiceToEdit=x;
+    
   }
+  editMyInvoice(i:any){
+    for (let k in this.invoices){
+      if (this.invoices[k].idInvoice == i.idInvoice){
+        this.invoices[k]=i;
+      }
+    }
 
+
+    
+  }
+  showForm(){
+    this.showAdd=true;
+  }
+  addInvoice(i:Invoice){
+this.invoices.push(i);
+  }
 }
