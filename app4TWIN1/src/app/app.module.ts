@@ -17,6 +17,8 @@ import { ParentComponent } from './parent/parent.component';
 import { FilsComponent } from './fils/fils.component';
 import { ListInvoiceComponent } from './list-invoice/list-invoice.component';
 import { EditInvoiceComponent } from './edit-invoice/edit-invoice.component';
+import { UserService } from './user.service';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -39,8 +41,8 @@ import { EditInvoiceComponent } from './edit-invoice/edit-invoice.component';
     BrowserModule,
     AppRoutingModule,
     FormsModule, //template driven : ngModel et ngForm
-    ReactiveFormsModule //formGroup, formControlName
-
+    ReactiveFormsModule, //formGroup, formControlName
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
