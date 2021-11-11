@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { UserService } from '../user.service';
 
 @Component({
   selector: 'app-test',
@@ -7,10 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TestComponent implements OnInit {
 
-  prop1 : string = "Val1";
-  constructor() { }
+  prop1 : string = "testVal1";
+  constructor(private us:UserService) { }
 
   ngOnInit(): void {
+
+    console.log(this.us.getAllUsers())
   }
 
   getVal(t:number){

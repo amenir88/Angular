@@ -21,7 +21,8 @@ import { FilsComponent } from './fils/fils.component';
 import { ListInvoiceComponent } from './list-invoice/list-invoice.component';
 import { EditInvoiceComponent } from './edit-invoice/edit-invoice.component';
 import { AddInvoiceComponent } from './add-invoice/add-invoice.component';
-
+import { UserService } from './user.service';
+import { HttpClientModule } from '@angular/common/http';
 @NgModule({
   declarations: [
     AppComponent,
@@ -47,7 +48,8 @@ import { AddInvoiceComponent } from './add-invoice/add-invoice.component';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
     
   ],
   providers: [],
