@@ -79,5 +79,12 @@
     }
 
 
+  ],
+  "products":[
+    {"id":1,
+    "code":"test",
+  "libelle":"test",
+"prixUnitaire": 145,
+"tauxTVA":0.19}
   ]
 }

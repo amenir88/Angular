@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
+import { ParentComponent } from './parent/parent.component';
 
 @Component({
   selector: 'app-root',
@@ -7,8 +8,11 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'app4TWIN1';
+  @ViewChild(ParentComponent) monFils:ParentComponent;
 
   first(){
+    
+     console.log(this.monFils.p);
      console.log("Bonjour");
   }
 }

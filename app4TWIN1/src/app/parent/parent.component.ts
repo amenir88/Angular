@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ParentComponent implements OnInit {
 
-  p:string="Bonjour";
+  p:string="Bonjour je suis le p du fils";
   constructor() { }
 
   ngOnInit(): void {

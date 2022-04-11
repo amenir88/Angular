@@ -17,7 +17,7 @@ const routes: Routes = [
     {path:"listuser/:cat", component:ListUserComponent}
   ]},
   {path:"maininvoice", component:ListInvoiceComponent},
-  {path:"mainproduct", component:MainProductComponent},
+  {path:"mainproduct", loadChildren: () => import('./product/product.module').then(m => m.ProductModule)},
   {path:"mainprovider", component:MainProviderComponent},
   {path:"login", component:LoginUserComponent},
   {path:"**", component:NotFoundPageComponent}
